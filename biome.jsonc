@@ -1,9 +1,13 @@
 {
 	"$schema": "./node_modules/@biomejs/biome/configuration_schema.json",
-	"vcs": {
-		"enabled": false,
-		"clientKind": "git",
-		"useIgnoreFile": false
+	"assist": {
+		"actions": {
+			"source": {
+				"organizeImports": "on",
+				"useSortedAttributes": "on",
+				"useSortedProperties": "on"
+			}
+		}
 	},
 	"files": {
 		"ignoreUnknown": false,
@@ -13,45 +17,43 @@
 		"enabled": true,
 		"indentStyle": "tab"
 	},
-	"assist": {
-		"actions": {
-			"source": {
-				"organizeImports": "on"
-			}
+	"javascript": {
+		"formatter": {
+			"quoteStyle": "single"
 		}
 	},
 	"linter": {
 		"enabled": true,
 		"rules": {
 			"style": {
-				"useLiteralEnumMembers": "error",
-				"noCommaOperator": "error",
-				"useNodejsImportProtocol": "error",
-				"useAsConstAssertion": "error",
-				"useNumericLiterals": "error",
-				"useEnumInitializers": "error",
-				"useSelfClosingElements": "error",
-				"useConst": "error",
-				"useSingleVarDeclarator": "error",
-				"noUnusedTemplateLiteral": "error",
-				"useNumberNamespace": "error",
-				"noInferrableTypes": "error",
-				"useExponentiationOperator": "error",
-				"useTemplate": "error",
-				"noParameterAssign": "error",
-				"noNonNullAssertion": "error",
-				"useDefaultParameterLast": "error",
 				"noArguments": "error",
-				"useImportType": "error",
-				"useExportType": "error",
+				"noCommaOperator": "error",
+				"noInferrableTypes": "error",
+				"noNonNullAssertion": "error",
+				"noParameterAssign": "error",
+				"noUnusedTemplateLiteral": "error",
 				"noUselessElse": "error",
-				"useShorthandFunctionType": "error"
+				"useAsConstAssertion": "error",
+				"useConst": "error",
+				"useDefaultParameterLast": "error",
+				"useEnumInitializers": "error",
+				"useExponentiationOperator": "error",
+				"useExportType": "error",
+				"useImportType": "error",
+				"useLiteralEnumMembers": "error",
+				"useNodejsImportProtocol": "error",
+				"useNumberNamespace": "error",
+				"useNumericLiterals": "error",
+				"useSelfClosingElements": "error",
+				"useShorthandFunctionType": "error",
+				"useSingleVarDeclarator": "error",
+				"useTemplate": "error"
 			}
 		}
 	},
-	"javascript": {
-		"formatter": {
-			"quoteStyle": "single"
-		}
+	"vcs": {
+		"clientKind": "git",
+		"enabled": false,
+		"useIgnoreFile": false
 	}
 }
