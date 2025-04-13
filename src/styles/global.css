@@ -1,6 +1,6 @@
-@import "tailwindcss";
-@import "@fontsource-variable/montserrat";
-@import "@fontsource/courier-prime/400.css";
+@import 'tailwindcss';
+@import '@fontsource-variable/montserrat';
+@import '@fontsource/courier-prime/400.css';
 
 @theme {
 	/* Color palette */
@@ -47,6 +47,25 @@
 
 	/* Font family */
 	--font-*: initial;
-	--font-sans: "Montserrat Variable", ui-sans-serif, system-ui, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
-	--font-mono: "Courier Prime", "Courier New", ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", monospace;
+	--font-sans:
+		'Montserrat Variable', ui-sans-serif, system-ui, sans-serif, 'Apple Color Emoji',
+		'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
+	--font-mono:
+		'Courier Prime', 'Courier New', ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas,
+		'Liberation Mono', monospace;
+}
+
+@layer base {
+	:root {
+		--focus-outline-color: currentColor;
+		--focus-outline-offset: 0.1rem;
+		--focus-outline-style: solid;
+		--focus-outline-width: 2px;
+	}
+	*:focus-visible {
+		outline-color: var(--focus-outline-color);
+		outline-offset: var(--focus-outline-offset);
+		outline-style: var(--focus-outline-style);
+		outline-width: var(--focus-outline-width);
+	}
 }

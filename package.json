@@ -6,9 +6,9 @@
 		"astro": "astro",
 		"build": "astro build",
 		"dev": "astro dev",
-		"fix": "pnpm biome check --write .",
-		"fix:format": "pnpm biome format --write .",
-		"fix:lint": "pnpm biome lint --write .",
+		"fix": "pnpm run fix:lint && pnpm run fix:format",
+		"fix:format": "prettier --write . --ignore-unknown --cache",
+		"fix:lint": "pnpm biome lint . --write",
 		"preview": "astro preview"
 	},
 	"dependencies": {
@@ -19,7 +19,10 @@
 		"tailwindcss": "^4.1.3"
 	},
 	"devDependencies": {
-		"@biomejs/biome": "2.0.0-beta.1"
+		"@biomejs/biome": "2.0.0-beta.1",
+		"prettier": "^3.5.3",
+		"prettier-plugin-astro": "^0.14.1",
+		"prettier-plugin-tailwindcss": "^0.6.11"
 	},
 	"packageManager": "pnpm@10.8.0+sha512.0e82714d1b5b43c74610193cb20734897c1d00de89d0e18420aebc5977fa13d780a9cb05734624e81ebd81cc876cd464794850641c48b9544326b5622ca29971"
 }
