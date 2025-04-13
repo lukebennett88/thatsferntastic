@@ -1,6 +1,11 @@
 import { config, fields } from '@keystatic/core';
 
+const isProduction = process.env.NODE_ENV === 'production';
+
 export default config({
+	cloud: {
+		project: 'luke-bennett/thatsferntastic',
+	},
 	ui: {
 		brand: {
 			name: '@thatsferntastic',
@@ -9,9 +14,7 @@ export default config({
 			},
 		},
 	},
-	storage: {
-		kind: 'local',
-	},
+	storage: isProduction ? { kind: 'cloud' } : { kind: 'local' },
 	singletons: {
 		homepage: {
 			label: 'Homepage',
