@@ -53,12 +53,17 @@
 	--font-mono:
 		'Courier Prime', 'Courier New', ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas,
 		'Liberation Mono', monospace;
+
+	/* Font weight */
+	--font-weight-*: initial;
+	--font-weight-regular: 400;
+	--font-weight-medium: 500;
 }
 
 @layer base {
 	:root {
-		--focus-outline-color: currentColor;
-		--focus-outline-offset: 0.1rem;
+		--focus-outline-color: color-mix(in oklab, var(--color-pink-600) 50%, transparent);
+		--focus-outline-offset: calc(var(--spacing) * 0.5);
 		--focus-outline-style: solid;
 		--focus-outline-width: 2px;
 	}
