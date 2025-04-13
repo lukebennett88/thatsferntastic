@@ -1,15 +1,20 @@
 ---
 import Layout from '../layouts/layout.astro';
+import { reader } from '../lib/reader';
+import { MarkdocRenderer } from '../lib/renderers/markdoc-renderer';
+
+const { bio, links, title } = await reader.singletons.homepage.readOrThrow();
+const { node } = await bio();
 ---
 
 <Layout>
 	<main class="max-w-sm flex-1 rounded-4xl bg-white p-6 text-gray-600 shadow-lg lg:max-w-2xl">
 		<div class="flex flex-col gap-8">
 			<div class="flex items-center justify-center gap-8">
-				<h1 class="group flex flex-col items-center gap-2">
+				<h1 class="group flex flex-col items-center gap-2 transition hover:-translate-y-0.5">
 					<a
 						aria-label="That's Fern-tastic"
-						class="inline-flex size-24 items-center justify-center overflow-hidden rounded-full transition hover:-translate-y-0.5 hover:shadow-lg"
+						class="inline-flex size-24 items-center justify-center overflow-hidden rounded-full group-hover:shadow-lg"
 						href="/"
 					>
 						<img src="/avatar.jpg" alt="" />
@@ -19,33 +24,22 @@ import Layout from '../layouts/layout.astro';
 							aria-hidden="true"
 							tabindex="-1"
 							class="inline-flex items-center justify-center underline-offset-2 group-hover:underline group-focus-visible:underline"
-							href="/">@thatsferntastic</a
+							href="/">{title}</a
 						>
 					</span>
 				</h1>
 			</div>
 			<div class="flex flex-col gap-8 lg:grid lg:grid-cols-2 lg:items-center">
-				<div>
-					<p>
-						Hey! I'm Fern, a maker, a sewist, and an artist on the Mid North Coast of NSW,
-						Australia, who loves bright colours, clashing patterns, and cheese. I'm not currently
-						running an online store or teaching classes, but I still love to share what I'm making
-						on my social media. You can also find my bags and pouches available to buy at Purple
-						Leaf Collective, both online and in person.
-					</p>
+				<div class="prose">
+					<MarkdocRenderer node={node} />
 				</div>
 				<ul class="flex flex-col gap-4 rounded-2xl">
 					{
-						[
-							{ label: 'Purple Leaf Collective', href: 'https://purpleleafcollective.com.au/' },
-							{ label: 'Facebook', href: 'https://www.facebook.com/thatsferntastic' },
-							{ label: 'Instagram', href: 'https://www.instagram.com/thatsferntastic' },
-							{ label: 'Threads', href: 'https://www.threads.net/@thatsferntastic' },
-						].map((item) => (
+						links.map((item) => (
 							<li class="flex flex-col">
 								<a
 									class="inline-flex items-center justify-center rounded-full bg-pink-200 px-4 py-2 font-medium text-pink-800 transition hover:-translate-y-0.5 hover:shadow-lg"
-									href={item.href}
+									href={item.url}
 									target="_blank"
 									rel="noopener noreferrer"
 								>
