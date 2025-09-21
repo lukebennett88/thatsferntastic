@@ -15,7 +15,7 @@ export default defineConfig({
 	integrations: [keystatic(), markdoc(), react(), sitemap()],
 	output: 'static',
 	server: { host: true },
-	site: 'https://thatsferntastic.com.au',
+	site: 'https://links.thatsferntastic.com.au',
 	trailingSlash: 'never',
 	vite: { plugins: [tailwindcss()] },
 });
